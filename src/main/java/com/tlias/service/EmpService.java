@@ -1,12 +1,16 @@
 package com.tlias.service;
 
 import com.tlias.pojo.Emp;
+import com.tlias.pojo.PageBean;
 
 import java.util.List;
 
 /**
- * 员工管理
+ * 员工列表
  */
 public interface EmpService {
-    List<Emp> list();
+
+    PageBean page(Integer page, Integer pageSize);
+
+    PageBean simplePage(Integer page, Integer pageSize);
 }

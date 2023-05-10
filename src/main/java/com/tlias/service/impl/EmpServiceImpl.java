@@ -1,22 +1,37 @@
 package com.tlias.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.tlias.Mapper.EmpMapper;
 import com.tlias.pojo.Emp;
+import com.tlias.pojo.PageBean;
 import com.tlias.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * 将对象交给IOC容器管理
- */
 @Service
 public class EmpServiceImpl implements EmpService {
     @Autowired
     private EmpMapper empMapper;
+
     @Override
-    public List<Emp> list() {
-        return empMapper.list();
+    public PageBean page(Integer page, Integer pageSize) {
+        Long total = empMapper.count();
+        Integer start = (page - 1) * pageSize;
+        List<Emp> empList = empMapper.page(start, pageSize);
+        PageBean pageBean = new PageBean();
+        pageBean.setRows(empList);
+        pageBean.setTotal(total);
+        return pageBean;
+    }
+
+    @Override
+    public PageBean simplePage(Integer page, Integer pageSize) {
+        PageHelper.startPage(page, pageSize);
+        List<Emp> empList = empMapper.list();
+        Page<Emp> p = (Page<Emp>) empList;
+        return new PageBean(p.getTotal(), p.getResult());
     }
 }

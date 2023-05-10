@@ -8,10 +8,13 @@ import java.util.List;
 
 @Mapper
 public interface EmpMapper {
-    /**
-     * 查询全部部门信息
-     * @return 全部部门
-     */
+
+    @Select("select count(*) from emp")
+    Long count();
+
+    @Select("select * from emp limit #{start}, #{pageSize}")
+    List<Emp> page(Integer start, Integer pageSize);
+
     @Select("select * from emp")
-    List<Emp> list();
+    List<Emp> list ();
 }
