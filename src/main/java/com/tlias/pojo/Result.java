@@ -17,6 +17,9 @@ public class Result {
     public static Result SUCCESS(Object Data) {
         return new Result(0, "success", Data);
     }
+    public static  Result SUCCESS(String msg) {
+        return new Result(0, msg, null);
+    }
     public static Result SUCCESS () {
         return new Result(0, "success", null);
     }

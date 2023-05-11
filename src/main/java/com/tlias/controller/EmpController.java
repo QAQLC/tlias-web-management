@@ -7,6 +7,7 @@ import com.tlias.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -63,7 +64,7 @@ public class EmpController {
      * @return 是否成功
      */
     @PostMapping
-    public Result insertEmp (@RequestBody Emp emp) {
+    public Result insertEmp (@RequestBody @Validated Emp emp) {
         log.info("新增员工：{}", emp);
         empService.insertEmp(emp);
         return Result.SUCCESS();
