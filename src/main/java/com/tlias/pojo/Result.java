@@ -10,20 +10,20 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class Result {
-    private Integer code;
+    private String code;
     private String msg;
     private Object data;
 
     public static Result SUCCESS(Object Data) {
-        return new Result(0, "success", Data);
+        return new Result("0000", "success", Data);
     }
     public static  Result SUCCESS(String msg) {
-        return new Result(0, msg, null);
+        return new Result("0000", msg, null);
     }
     public static Result SUCCESS () {
-        return new Result(0, "success", null);
+        return new Result("0000", "success", null);
     }
-    public static Result ERROR () {
-        return new Result(1, "error", null);
+    public static Result ERROR (String code, String msg) {
+        return new Result(code, msg, null);
     }
 }
