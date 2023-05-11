@@ -1,5 +1,6 @@
 package com.tlias.pojo;
 
+import com.tlias.constant.ErrorMessage;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,13 +16,13 @@ public class Result {
     private Object data;
 
     public static Result SUCCESS(Object Data) {
-        return new Result("0000", "success", Data);
+        return new Result(ErrorMessage.SUCCESS.getCode(), "success", Data);
     }
     public static  Result SUCCESS(String msg) {
-        return new Result("0000", msg, null);
+        return new Result(ErrorMessage.SUCCESS.getCode(), msg, null);
     }
     public static Result SUCCESS () {
-        return new Result("0000", "success", null);
+        return new Result(ErrorMessage.SUCCESS.getCode(), "success", null);
     }
     public static Result ERROR (String code, String msg) {
         return new Result(code, msg, null);

@@ -14,5 +14,4 @@ public enum ErrorMessage {
         this.code = code;
         this.message = message;
     }
-
 }

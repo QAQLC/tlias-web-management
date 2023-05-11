@@ -5,10 +5,12 @@ import com.tlias.pojo.PageBean;
 import com.tlias.pojo.Result;
 import com.tlias.service.EmpService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.util.MapUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -68,5 +70,23 @@ public class EmpController {
         log.info("新增员工：{}", emp);
         empService.insertEmp(emp);
         return Result.SUCCESS();
+    }
+
+    /**
+     * 员工上传图片
+     * @param image 图片二进制
+     * @return Result
+     */
+    @PostMapping("/uploadImageToLocal")
+    public Result uploadImage (Integer id, MultipartFile image) {
+        String originalFilename = image.getOriginalFilename();
+        log.info("上传图片：{}", image.getOriginalFilename());
+        int index = 0;
+        if (originalFilename != null) {
+            index = originalFilename.lastIndexOf(".");
+            String suffix = originalFilename.substring(index);
+        }
+
+        return Result.SUCCESS("上传成功");
     }
 }
