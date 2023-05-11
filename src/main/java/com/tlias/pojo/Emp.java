@@ -23,7 +23,7 @@ public class Emp {
     private String image;
     private Short job; // 职位 1 班主任 2 讲师 3 学工主管 4 教研主管 5 咨询师
     private Integer deptId; // 部门Id
-    private LocalDate entryDate;
+    private LocalDate entrydate;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
 }

@@ -16,4 +16,6 @@ public interface EmpService {
     PageBean simplePage(Integer page, Integer pageSize, String name, Short gender, LocalDate begin, LocalDate end);
 
     void deleteByIds(List<Integer> ids);
+
+    void insertEmp(Emp emp);
 }
