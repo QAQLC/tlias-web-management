@@ -34,6 +34,6 @@ public class ControllerHandlers {
             log.error(msg);
         }
 
-        return Result.ERROR(ErrorMessage.ERROR.getCode(), bindingResult.getFieldError().getDefaultMessage());
+        return Result.ERROR(bindingResult.getFieldError().getDefaultMessage());
     }
 }

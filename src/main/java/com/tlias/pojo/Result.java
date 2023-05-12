@@ -16,15 +16,16 @@ public class Result {
     private Object data;
 
     public static Result SUCCESS(Object Data) {
-        return new Result(ErrorMessage.SUCCESS.getCode(), "success", Data);
-    }
-    public static  Result SUCCESS(String msg) {
-        return new Result(ErrorMessage.SUCCESS.getCode(), msg, null);
+        return new Result(ErrorMessage.SUCCESS.getCode(), "成功", Data);
     }
     public static Result SUCCESS () {
-        return new Result(ErrorMessage.SUCCESS.getCode(), "success", null);
+        return new Result(ErrorMessage.SUCCESS.getCode(), "成功", null);
     }
-    public static Result ERROR (String code, String msg) {
-        return new Result(code, msg, null);
+
+    public static Result ERROR (String msg) {
+        return new Result(ErrorMessage.ERROR.getCode(), msg, null);
+    }
+    public static Result ERROR () {
+        return new Result(ErrorMessage.ERROR.getCode(), "失败", null);
     }
 }
