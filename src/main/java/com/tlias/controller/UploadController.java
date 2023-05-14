@@ -37,12 +37,12 @@ public class UploadController {
     }
 
     /**
-     * 图片上传到阿里云OSS
-     * @param file 图片文件流
+     * 文件上传到阿里云OSS
+     * @param file 文件流
      * @return Result
      */
-    @PostMapping("/uploadImage")
-    public Result uploadImageToOss (MultipartFile file) throws IOException {
+    @PostMapping("/uploadFile")
+    public Result uploadImageToOss (MultipartFile file) throws Exception {
         log.info("文件上传：{}", file.getOriginalFilename());
         String url = aliOSSUtils.upload(file);
         return Result.SUCCESS(url);

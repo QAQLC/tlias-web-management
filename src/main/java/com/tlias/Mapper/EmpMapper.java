@@ -21,4 +21,6 @@ public interface EmpMapper {
     void deleteByIds(List<Integer> ids);
 
     void insertEmp(Emp emp);
+    @Select("select * from emp where username = #{username} and password = #{password}")
+    Emp getByUsernameAndPassword(Emp emp);
 }
