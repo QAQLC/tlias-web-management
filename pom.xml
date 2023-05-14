@@ -75,9 +75,16 @@
             <artifactId>jaxb-runtime</artifactId>
             <version>4.0.2</version>
         </dependency>
+        <!-- 自定义配置在properties中提醒 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+        <!-- jwt -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
         </dependency>
     </dependencies>
 
