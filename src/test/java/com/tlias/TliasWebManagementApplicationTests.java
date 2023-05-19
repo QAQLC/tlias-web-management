@@ -7,7 +7,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 class TliasWebManagementApplicationTests {
 
     @Test
-    void contextLoads() {
+    void TestGenerateJwt () {
+
     }
 
+    @Test
+    void TestGetJwt () {
+
+    }
 }

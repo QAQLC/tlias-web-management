@@ -33,7 +33,7 @@ public class JwtUtils {
     public static Claims parseJWT (String jwt) {
         return Jwts.parser()
                 .setSigningKey(signKey)
-                .parseClaimsJwt(jwt)
+                .parseClaimsJws(jwt)
                 .getBody();
     }
 }
