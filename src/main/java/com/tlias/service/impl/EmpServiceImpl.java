@@ -8,6 +8,7 @@ import com.tlias.pojo.PageBean;
 import com.tlias.service.EmpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -54,5 +55,4 @@ public class EmpServiceImpl implements EmpService {
     public Emp login(Emp emp) {
        return empMapper.getByUsernameAndPassword(emp);
     }
-
 }

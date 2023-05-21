@@ -3,7 +3,6 @@ package com.tlias.filter;
 import com.alibaba.fastjson.JSONObject;
 import com.tlias.pojo.Result;
 import com.tlias.utils.JwtUtils;
-import io.jsonwebtoken.Claims;
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,11 +13,11 @@ import org.springframework.util.StringUtils;
 import java.io.IOException;
 
 /**
- * 登录过滤器，过滤接口，判断token是否正确
+ * 登录过滤器，过滤接口，判断token是否正确 servlet  javaWeb 3大组件
  */
 
 @Slf4j
-@WebFilter(urlPatterns = "/*")
+// @WebFilter(urlPatterns = "/*")
 public class LoginCheckFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws ServletException, IOException {

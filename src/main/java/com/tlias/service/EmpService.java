@@ -20,4 +20,5 @@ public interface EmpService {
     void insertEmp(Emp emp);
 
     Emp login(Emp emp);
+
 }
