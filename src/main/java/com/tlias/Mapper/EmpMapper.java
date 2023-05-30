@@ -10,7 +10,6 @@ import java.util.List;
 
 @Mapper
 public interface EmpMapper {
-
     @Select("select count(*) from emp")
     Long count();
 
