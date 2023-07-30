@@ -1,4 +1,4 @@
-package com.tlias;
+package com.tliaswebmanagement;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,12 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class TliasWebManagementApplicationTests {
 
     @Test
-    void TestGenerateJwt () {
-
+    void contextLoads() {
     }
 
-    @Test
-    void TestGetJwt () {
-
-    }
 }
