@@ -24,3 +24,12 @@
             - @Resource 注解，这个注解是jdk提供的，按照名称注入
 
 # P80 mysql 介绍
+
+# p83说的是命令行操作DDL的一些操作
+    - show databases;
+    - select database();
+    - use 使用数据库
+    - 删除数据库
+    - 创建数据库
+
+# p84说的是图形化的一些软件操作数据库
