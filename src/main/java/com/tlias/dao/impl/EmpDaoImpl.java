@@ -4,9 +4,9 @@ import com.tlias.dao.EmpDao;
 import com.tlias.pojo.Emp;
 import com.tlias.utils.XmlParseUtils;
 import java.util.List;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class EmpDaoImpl implements EmpDao {
 
     @Override

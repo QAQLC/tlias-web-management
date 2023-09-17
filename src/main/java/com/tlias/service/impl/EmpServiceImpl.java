@@ -1,18 +1,16 @@
 package com.tlias.service.impl;
 
 import com.tlias.dao.EmpDao;
-import com.tlias.dao.impl.EmpDaoImpl;
 import com.tlias.pojo.Emp;
 import com.tlias.service.EmpService;
 import jakarta.annotation.Resource;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class EmpServiceImpl implements EmpService {
 
-    @Resource
+    @Resource(name = "empDaoImpl")
     private EmpDao empDao;
 
     @Override
