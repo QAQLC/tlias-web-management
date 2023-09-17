@@ -21,7 +21,7 @@ target/
 .idea/workspace.xml
 .idea/jarRepositories.xml
 .idea/.gitignore
-
+.idea/uiDesigner.xml
 *.iws
 *.iml
 *.ipr
