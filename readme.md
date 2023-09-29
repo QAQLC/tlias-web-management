@@ -25,17 +25,17 @@
 
 # p80 mysql 介绍
 
-# p83 说的是命令行操作DDL的一些操作
+# p83 mysql-说的是命令行操作DDL的一些操作
     - show databases;
     - select database();
     - use 使用数据库
     - 删除数据库
     - 创建数据库
 
-# p84 说的是图形化的一些软件操作数据库
+# p84 mysql-说的是图形化的一些软件操作数据库
     - 主要使用idea自带的数据库工具
 
-# p85 DDL表数据的创建
+# p85 mysql-DDL表数据的创建
     - 使用datgroup 的控制台创建一张表
         - 5个约束条件
         - 使用单引号
@@ -46,11 +46,11 @@
         - 修改数据
         - 删除数据
 
-# p92 DQL基本查询
+# p92 mysql-DQL基本查询
     - 就是单表的基本查询
         - 前面6分钟啰里八嗦说一大堆，后面就说了下单表查询的基本语法
 
-# p93 DQL条件查询
+# p93 mysql-DQL条件查询
     - 条件查询有2种运算符
         - 比较运算符
             - 4个特殊的
@@ -111,3 +111,35 @@
     - 入门
     - crud
     - 动态sql
+
+# p117 mybatis-入门
+
+
+# p118 mybatis-入门-配置
+    - 配置sql等语法提示
+
+---------------------- 20230929 学习 ------------------------
+# P119 mybatis-入门-jdbc
+    - 介绍jdbc只是一套接口规范
+    - 缺点，以及对比Mybatis的一些优点
+    - 数据库连接池
+
+# p120 mybatis-入门-数据库连接池相关概念
+
+# p121 mybatis-入门-lombok
+
+# p122 mybatis-基础操作-环境准备
+
+# p123 mybatis-基础操作-删除
+
+# p124 mybatis-基础操作-删除--预编译sql
+    - 配置文件打开mybatis 日志，将日志输出到控制台
+        - 预编译sql性能更好
+            - delete from emp where id = 1
+            - delete from emp where id = 2
+            - 上面这样sql每次都需要分析sql 然后优化然后做编译最后缓存
+        - 防止sql注入
+            - #{}
+            - ${} 拼接sql 存在sql注入风险
+
+# p125 mybatis-基础操作-新增

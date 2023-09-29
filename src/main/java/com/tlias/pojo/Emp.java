@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * xml解析员工信息的实体类
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
