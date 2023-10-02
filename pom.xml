@@ -69,7 +69,7 @@
                 <version>0.21</version>
                 <configuration>
                     <prettierJavaVersion>2.0.0</prettierJavaVersion>
-                    <printWidth>120</printWidth>
+                    <printWidth>100</printWidth>
                     <tabWidth>4</tabWidth>
                     <useTabs>false</useTabs>
                     <ignoreConfigFile>true</ignoreConfigFile>
