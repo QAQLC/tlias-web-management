@@ -11,6 +11,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
+@RequestMapping("/depts")
 public class DeptController {
     @Resource
     private DeptService deptService;
@@ -19,7 +20,7 @@ public class DeptController {
      * 查询部门
      * @return 部门列表
      */
-    @GetMapping("/depts")
+    @GetMapping()
     public Result list(){
         log.info("查询部门数据~");
         List<Dept> deptList = deptService.list();
@@ -31,9 +32,9 @@ public class DeptController {
      * @param id 部门id
      * @return 无
      */
-    @DeleteMapping("/depts/{id}")
+    @DeleteMapping("/{id}")
     public Result deleteDept(@PathVariable Integer id) {
-        log.info("部门id{}：", id);
+        log.info("根据ID删除部门：{}", id);
         deptService.deleteById(id);
         return Result.SUCCESS();
     }
@@ -42,10 +43,10 @@ public class DeptController {
      * 新增部门
      * @return 无
      */
-    @PostMapping("/depts")
-    public Result insertDept(String name) {
-        log.info("部门名称：{}",name);
-        deptService.insertDept(name);
+    @PostMapping()
+    public Result insertDept(@RequestBody Dept dept) {
+        log.info("新增部门：{}",dept);
+        deptService.insertDept(dept);
         return Result.SUCCESS();
     }
 }

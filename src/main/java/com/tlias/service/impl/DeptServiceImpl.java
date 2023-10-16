@@ -25,10 +25,7 @@ public class DeptServiceImpl implements DeptService {
     }
 
     @Override
-    public void insertDept(String name) {
-        Dept dept = new Dept();
-        dept.setId(null);
-        dept.setName(name);
+    public void insertDept(Dept dept) {
         dept.setCreateTime(LocalDateTime.now());
         dept.setUpdateTime(LocalDateTime.now());
 

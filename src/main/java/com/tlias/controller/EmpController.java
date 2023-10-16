@@ -16,17 +16,4 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class EmpController {
-
-    @Resource(name = "empServiceImpl") // 运行时，IOC容器会提供该类型的Bean对象，并赋值给该变量，依赖注入
-    private EmpService empService;
-
-    /**
-     * 解析xml文件
-     * @return
-     */
-    @RequestMapping("/listEmp")
-    public Result listEmp() {
-        List<Emp> empList = empService.listEmp();
-        return Result.SUCCESS(empList);
-    }
-}
+ }
