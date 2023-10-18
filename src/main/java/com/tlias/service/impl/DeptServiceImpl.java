@@ -4,13 +4,13 @@ import com.tlias.entity.Dept;
 import com.tlias.mapper.DeptMapper;
 import com.tlias.service.DeptService;
 import jakarta.annotation.Resource;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 @Service
 public class DeptServiceImpl implements DeptService {
+
     @Resource
     private DeptMapper deptMapper;
 

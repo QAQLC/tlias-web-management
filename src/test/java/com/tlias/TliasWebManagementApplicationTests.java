@@ -1,14 +1,13 @@
 package com.tlias;
 
 import com.tlias.entity.Emp;
-import com.tlias.mapper.EmpMapper;
+import com.tlias.mapper.TestEmpMapper;
 import com.tlias.mapper.UserMapper;
 import jakarta.annotation.Resource;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -27,7 +26,7 @@ class TliasWebManagementApplicationTests {
     }
 
     @Resource
-    private EmpMapper empMapper;
+    private TestEmpMapper empMapper;
 
     @Test
     void TestDeleteByEmpId() {
@@ -49,6 +48,7 @@ class TliasWebManagementApplicationTests {
 
         empMapper.insertIntoEmp(emp);
     }
+
     @Test
     void TestUpdateByEmpId() {
         Emp emp = new Emp();
@@ -87,15 +87,23 @@ class TliasWebManagementApplicationTests {
 
     @Test
     void TestQueryListEmp() {
-        List<Emp> temps = empMapper.queryListEmp("张无忌", (short) 1, LocalDate.of(2010, 1, 1), LocalDate.of(2020, 1, 1));
+        List<Emp> temps = empMapper.queryListEmp(
+            "张无忌",
+            (short) 1,
+            LocalDate.of(2010, 1, 1),
+            LocalDate.of(2020, 1, 1)
+        );
         System.out.println(temps);
     }
 
     @Test
     void TestQueryListEmpDynamic() {
-        List<Emp> temps = empMapper.queryListEmpDynamic("null", (short) 2,
-                LocalDate.of(2010, 1, 1), LocalDate.of(2020, 1, 1));
-
+        List<Emp> temps = empMapper.queryListEmpDynamic(
+            "null",
+            (short) 2,
+            LocalDate.of(2010, 1, 1),
+            LocalDate.of(2020, 1, 1)
+        );
     }
 
     /**
@@ -103,7 +111,7 @@ class TliasWebManagementApplicationTests {
      */
     @Test
     void TestDeleteByBatchEmpIds() {
-        List<Integer> ids = Arrays.asList(15,16);
+        List<Integer> ids = Arrays.asList(15, 16);
         empMapper.deleteByBatchEmpIds(ids);
     }
 }

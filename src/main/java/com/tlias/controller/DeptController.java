@@ -4,15 +4,15 @@ import com.tlias.entity.Dept;
 import com.tlias.pojo.Result;
 import com.tlias.service.DeptService;
 import jakarta.annotation.Resource;
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @Slf4j
 @RestController
 @RequestMapping("/depts")
 public class DeptController {
+
     @Resource
     private DeptService deptService;
 
@@ -20,8 +20,8 @@ public class DeptController {
      * 查询部门
      * @return 部门列表
      */
-    @GetMapping()
-    public Result list(){
+    @GetMapping
+    public Result list() {
         log.info("查询部门数据~");
         List<Dept> deptList = deptService.list();
         return Result.SUCCESS(deptList);
@@ -43,9 +43,9 @@ public class DeptController {
      * 新增部门
      * @return 无
      */
-    @PostMapping()
+    @PostMapping
     public Result insertDept(@RequestBody Dept dept) {
-        log.info("新增部门：{}",dept);
+        log.info("新增部门：{}", dept);
         deptService.insertDept(dept);
         return Result.SUCCESS();
     }

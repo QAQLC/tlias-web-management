@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tlias.mapper.EmpMapper">
+<mapper namespace="com.tlias.mapper.TestEmpMapper">
 
     <select id="queryListEmp" resultType="com.tlias.entity.Emp">
         select * from emp where name like concat('%', #{name}, '%') and gender = #{gender} and entrydate between #{beginDate} and #{endDate}
