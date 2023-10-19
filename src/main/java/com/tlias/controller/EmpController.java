@@ -4,9 +4,10 @@ import com.tlias.entity.PageBean;
 import com.tlias.pojo.Result;
 import com.tlias.service.EmpService;
 import jakarta.annotation.Resource;
+import java.time.LocalDate;
 import java.util.List;
-
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -22,13 +23,67 @@ public class EmpController {
     @Resource
     private EmpService empService;
 
-    @GetMapping()
-    public Result page(
+    /**
+     * 手动分页查询员工列表
+     * @param page 页码
+     * @param pageSize  页数
+     * @return 员工列表
+     */
+    @GetMapping("/pageList")
+    public Result pageList(
         @RequestParam(defaultValue = "1") Integer page,
         @RequestParam(defaultValue = "10") Integer pageSize
     ) {
-        log.info("分页请求如参数：page={}, pageSize={}", page, pageSize);
-        PageBean pageBean = empService.page(page, pageSize);
+        log.info("分页请求参数：page={}, pageSize={}", page, pageSize);
+        PageBean pageBean = empService.pageList1(page, pageSize);
+        return Result.SUCCESS(pageBean);
+    }
+
+    /**
+     * 使用PageHelper分页插件查询员工列表
+     * @param page 页码
+     * @param pageSize 页数
+     * @return 员工列表
+     */
+    @GetMapping("/pageList2")
+    public Result pageList2(
+        @RequestParam(defaultValue = "1") Integer page,
+        @RequestParam(defaultValue = "10") Integer pageSize
+    ) {
+        log.info("分页请求参数：page={}, pageSize={}", page, pageSize);
+        PageBean pageBean = empService.pageList2(page, pageSize);
+        return Result.SUCCESS(pageBean);
+    }
+
+    /**
+     * 查询员工列表
+     * @param page 页码
+     * @param pageSize 页数
+     * @param name 姓名
+     * @param gender 性别
+     * @param begin 入职开始时间
+     * @param end 入职结束时间
+     * @return 员工列表
+     */
+    @GetMapping("/list")
+    public Result list(
+        @RequestParam(defaultValue = "1") Integer page,
+        @RequestParam(defaultValue = "10") Integer pageSize,
+        String name,
+        Short gender,
+        @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
+        @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate end
+    ) {
+        log.info(
+            "分页请求参数：page={}, pageSize={}, name={}, gender={}, begin={}, end={}",
+            page,
+            pageSize,
+            name,
+            gender,
+            begin,
+            end
+        );
+        PageBean pageBean = empService.list(page, pageSize, name, gender, begin, end);
         return Result.SUCCESS(pageBean);
     }
 }
