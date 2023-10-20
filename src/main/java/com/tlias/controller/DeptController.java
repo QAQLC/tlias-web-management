@@ -46,6 +46,7 @@ public class DeptController {
     @PostMapping
     public Result insertDept(@RequestBody Dept dept) {
         log.info("新增部门：{}", dept);
+
         deptService.insertDept(dept);
         return Result.SUCCESS();
     }

@@ -18,4 +18,6 @@ public interface EmpService {
         LocalDate begin,
         LocalDate end
     );
+
+    void deleteByIds(String[] ids);
 }

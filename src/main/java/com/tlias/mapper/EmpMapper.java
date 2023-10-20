@@ -22,4 +22,6 @@ public interface EmpMapper {
     List<Emp> pageList2();
 
     List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);
+
+    void deleteByIds(String[] ids);
 }

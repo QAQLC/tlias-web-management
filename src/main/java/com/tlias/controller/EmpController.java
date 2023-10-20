@@ -86,4 +86,16 @@ public class EmpController {
         PageBean pageBean = empService.list(page, pageSize, name, gender, begin, end);
         return Result.SUCCESS(pageBean);
     }
+
+    /**
+     * 单条删除或者批量删除员工
+     * @param ids 员工id
+     * @return 成功
+     */
+    @DeleteMapping("/{ids}")
+    public Result deleteByIds(@PathVariable String[] ids) {
+        log.info("员工ids：{}", (Object) ids);
+        empService.deleteByIds(ids);
+        return Result.SUCCESS();
+    }
 }
