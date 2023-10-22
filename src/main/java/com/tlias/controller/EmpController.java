@@ -1,5 +1,6 @@
 package com.tlias.controller;
 
+import com.tlias.entity.Emp;
 import com.tlias.entity.PageBean;
 import com.tlias.pojo.Result;
 import com.tlias.service.EmpService;
@@ -93,9 +94,21 @@ public class EmpController {
      * @return 成功
      */
     @DeleteMapping("/{ids}")
-    public Result deleteByIds(@PathVariable String[] ids) {
-        log.info("员工ids：{}", (Object) ids);
+    public Result deleteByIds(@PathVariable List<Integer> ids) {
+        log.info("员工ids：{}", ids);
         empService.deleteByIds(ids);
+        return Result.SUCCESS();
+    }
+
+    /**
+     * 新增员工
+     * @param emp 员工实体
+     * @return 成功 sava
+     */
+    @PostMapping
+    public Result insertEmp(@RequestBody Emp emp) {
+        log.info("员工信息：{}", emp);
+        empService.insertEmp(emp);
         return Result.SUCCESS();
     }
 }

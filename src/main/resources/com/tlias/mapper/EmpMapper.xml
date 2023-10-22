@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.tlias.mapper.EmpMapper">
+
     <!-- 条件查询员工信息 -->
     <select id="list" resultType="com.tlias.entity.Emp">
         select * from tb_emp
@@ -16,6 +17,7 @@
             <if test="begin != null and end != null">
                and between #{begin} and #{end}
             </if>
+
         </where>
         order by update_time desc
     </select>
@@ -26,4 +28,9 @@
             #{id}
         </foreach>
     </delete>
+    <!-- 新增员工 -->
+    <insert id="insertEmp">
+        insert into tb_emp(username, name, gender, image, job, entrydate, dept_id, create_time, update_time)
+            values(#{username}, #{name}, #{gender}, #{image}, #{job}, #{entrydate}, #{deptId}, #{createTime}, #{updateTime})
+    </insert>
 </mapper>

@@ -26,11 +26,11 @@ class TliasWebManagementApplicationTests {
     }
 
     @Resource
-    private TestEmpMapper empMapper;
+    private TestEmpMapper testEmpMapper;
 
     @Test
     void TestDeleteByEmpId() {
-        empMapper.deleteByEmpId(16);
+        testEmpMapper.deleteByEmpId(16);
     }
 
     @Test
@@ -46,7 +46,7 @@ class TliasWebManagementApplicationTests {
         emp.setCreateTime(LocalDateTime.now());
         emp.setUpdateTime(LocalDateTime.now());
 
-        empMapper.insertIntoEmp(emp);
+        testEmpMapper.insertIntoEmp(emp);
     }
 
     @Test
@@ -62,7 +62,7 @@ class TliasWebManagementApplicationTests {
         emp.setDeptId(3);
         emp.setUpdateTime(LocalDateTime.now());
 
-        empMapper.updateByEmpId(emp);
+        testEmpMapper.updateByEmpId(emp);
     }
 
     @Test
@@ -76,18 +76,18 @@ class TliasWebManagementApplicationTests {
 
         emp.setUpdateTime(LocalDateTime.now());
 
-        empMapper.updateByEmpIdDynamic(emp);
+        testEmpMapper.updateByEmpIdDynamic(emp);
     }
 
     @Test
     void TestQueryByEmpId() {
-        Emp emp = empMapper.queryByEmpId(18);
+        Emp emp = testEmpMapper.queryByEmpId(18);
         System.out.println(emp);
     }
 
     @Test
     void TestQueryListEmp() {
-        List<Emp> temps = empMapper.queryListEmp(
+        List<Emp> temps = testEmpMapper.queryListEmp(
             "张无忌",
             (short) 1,
             LocalDate.of(2010, 1, 1),
@@ -98,7 +98,7 @@ class TliasWebManagementApplicationTests {
 
     @Test
     void TestQueryListEmpDynamic() {
-        List<Emp> temps = empMapper.queryListEmpDynamic(
+        List<Emp> temps = testEmpMapper.queryListEmpDynamic(
             "null",
             (short) 2,
             LocalDate.of(2010, 1, 1),
@@ -112,6 +112,6 @@ class TliasWebManagementApplicationTests {
     @Test
     void TestDeleteByBatchEmpIds() {
         List<Integer> ids = Arrays.asList(15, 16);
-        empMapper.deleteByBatchEmpIds(ids);
+        testEmpMapper.deleteByBatchEmpIds(ids);
     }
 }

@@ -23,5 +23,7 @@ public interface EmpMapper {
 
     List<Emp> list(String name, Short gender, LocalDate begin, LocalDate end);
 
-    void deleteByIds(String[] ids);
+    void deleteByIds(List<Integer> ids);
+
+    void insertEmp(Emp emp);
 }

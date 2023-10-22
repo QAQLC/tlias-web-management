@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 /**
- * mybatis 入门层序
+ * mybatis 入门程序
  */
 @Mapper
 public interface UserMapper {

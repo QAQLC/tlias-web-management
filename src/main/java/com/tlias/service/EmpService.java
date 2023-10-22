@@ -1,7 +1,7 @@
 package com.tlias.service;
 
+import com.tlias.entity.Emp;
 import com.tlias.entity.PageBean;
-import com.tlias.pojo.Emp;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -19,5 +19,7 @@ public interface EmpService {
         LocalDate end
     );
 
-    void deleteByIds(String[] ids);
+    void deleteByIds(List<Integer> ids);
+
+    void insertEmp(Emp emp);
 }

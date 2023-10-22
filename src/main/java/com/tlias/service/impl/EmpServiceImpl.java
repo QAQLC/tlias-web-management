@@ -8,6 +8,7 @@ import com.tlias.mapper.EmpMapper;
 import com.tlias.service.EmpService;
 import jakarta.annotation.Resource;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
@@ -55,7 +56,15 @@ public class EmpServiceImpl implements EmpService {
     }
 
     @Override
-    public void deleteByIds(String[] ids) {
+    public void deleteByIds(List<Integer> ids) {
         empMapper.deleteByIds(ids);
+    }
+
+    @Override
+    public void insertEmp(Emp emp) {
+        emp.setCreateTime(LocalDateTime.now());
+        emp.setUpdateTime(LocalDateTime.now());
+
+        empMapper.insertEmp(emp);
     }
 }
