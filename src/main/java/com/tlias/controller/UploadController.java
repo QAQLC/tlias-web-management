@@ -1,14 +1,13 @@
 package com.tlias.controller;
 
 import com.tlias.pojo.Result;
+import com.tlias.utils.AliOSSUtils;
+import jakarta.annotation.Resource;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Objects;
 import java.util.UUID;
-
-import com.tlias.utils.AliOSSUtils;
-import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ResourceUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,8 +19,10 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/upload")
 public class UploadController {
+
     @Resource
     private AliOSSUtils aliOSSUtils;
+
     /** 本地上传
      * @param image 二进制文件，这里使用图片代替
      * @return 成功

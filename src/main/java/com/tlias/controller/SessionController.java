@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class SessionController {
+
     /**
      * 设置cookie
      * @param response
@@ -22,6 +23,7 @@ public class SessionController {
         response.addCookie(new Cookie("name", "cookie"));
         return Result.SUCCESS();
     }
+
     @GetMapping("/c2")
     public Result cookie2(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
@@ -36,13 +38,14 @@ public class SessionController {
      * @param request
      * @return
      */
-@GetMapping("/s1")
-public Result session1(HttpServletRequest request) {
-    HttpSession session = request.getSession();
-    log.info("session id: {}, hashCode: {}", session.getId(), session.hashCode());
-    session.setAttribute("name", "session");
-    return Result.SUCCESS();
-}
+    @GetMapping("/s1")
+    public Result session1(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        log.info("session id: {}, hashCode: {}", session.getId(), session.hashCode());
+        session.setAttribute("name", "session");
+        return Result.SUCCESS();
+    }
+
     @GetMapping("/s2")
     public Result session2(HttpServletRequest request) {
         HttpSession session = request.getSession();

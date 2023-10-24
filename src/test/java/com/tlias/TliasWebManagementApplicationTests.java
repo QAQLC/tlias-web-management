@@ -3,14 +3,19 @@ package com.tlias;
 import com.tlias.entity.Emp;
 import com.tlias.mapper.TestEmpMapper;
 import com.tlias.mapper.UserMapper;
+import io.jsonwebtoken.JwtBuilder;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import jakarta.annotation.Resource;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+@Slf4j
 @SpringBootTest
 class TliasWebManagementApplicationTests {
 
@@ -113,5 +118,20 @@ class TliasWebManagementApplicationTests {
     void TestDeleteByBatchEmpIds() {
         List<Integer> ids = Arrays.asList(15, 16);
         testEmpMapper.deleteByBatchEmpIds(ids);
+    }
+
+    @Test
+    void TestGenJwt() {
+        HashMap<String, Object> claims = new HashMap<>();
+        claims.put("username", "Jane");
+        claims.put("password", "123456");
+
+        String token = Jwts
+            .builder()
+            .signWith(SignatureAlgorithm.HS256, "Jane")
+            .setClaims(claims)
+            .setExpiration(new Date(System.currentTimeMillis() + 3600 * 1000))
+            .compact();
+        log.info(token);
     }
 }
