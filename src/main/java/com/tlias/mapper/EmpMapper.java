@@ -26,4 +26,13 @@ public interface EmpMapper {
     void deleteByIds(List<Integer> ids);
 
     void insertEmp(Emp emp);
+
+    /**
+     * 用户登录
+     * @param username 账号
+     * @param password 密码
+     * @return
+     */
+    @Select("select * from tb_emp where username = #{username} and password = #{password}")
+    Emp login(String username, String password);
 }

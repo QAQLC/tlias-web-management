@@ -22,4 +22,5 @@ public interface EmpService {
     void deleteByIds(List<Integer> ids);
 
     void insertEmp(Emp emp);
+    Emp login(String username, String password);
 }
