@@ -24,9 +24,11 @@ public class Result {
     public static Result ERROR() {
         return new Result(0, "失败", null);
     }
+
     public static Result ERROR(String msg) {
         return new Result(0, msg, null);
     }
+
     public static Result ERROR(String msg, Object data) {
         return new Result(0, msg, data);
     }
