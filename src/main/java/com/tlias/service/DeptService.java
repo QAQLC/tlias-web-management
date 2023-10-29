@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public interface DeptService {
     List<Dept> list();
 
-    void deleteById(Integer id);
+    void deleteById(Integer id) throws Exception;
 
     void insertDept(Dept dept);
 }
