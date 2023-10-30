@@ -1,5 +1,6 @@
 package com.tlias;
 
+import com.tlias.controller.TestBean;
 import com.tlias.entity.Emp;
 import com.tlias.mapper.TestEmpMapper;
 import com.tlias.mapper.UserMapper;
@@ -13,6 +14,7 @@ import java.util.*;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 
 @Slf4j
 @SpringBootTest
@@ -132,5 +134,24 @@ class TliasWebManagementApplicationTests {
             .setExpiration(new Date(System.currentTimeMillis() + 3600 * 1000))
             .compact();
         log.info(token);
+    }
+
+    @Resource
+    private ApplicationContext applicationContext;
+    /**
+     * bean单侧
+     */
+    @Test
+    void TestGetBean() {
+        // 根据bean的名称获取
+        Object testBean1 = applicationContext.getBean("testBean");
+        System.out.println(testBean1);
+
+        // 根据bean的类型获取
+        Object testBean2 = applicationContext.getBean(TestBean.class);
+        System.out.println(testBean2);
+        // 根据bean的名称和类型获取
+        TestBean testBean3 = applicationContext.getBean("testBean", TestBean.class);
+        System.out.println(testBean3);
     }
 }
