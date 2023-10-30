@@ -3,7 +3,6 @@ package com.tlias.mapper;
 import com.tlias.entity.Emp;
 import java.time.LocalDate;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

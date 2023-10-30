@@ -1,15 +1,15 @@
 package com.tlias.entity;
 
+import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class OperateLog {
+
     /**
      * 主键
      */
@@ -17,7 +17,7 @@ public class OperateLog {
     /**
      * 操作人ID
      */
-    private Integer operateId;
+    private Integer operateUser;
     /**
      * 操作时间
      */
@@ -31,6 +31,10 @@ public class OperateLog {
      */
     private String methodName;
     /**
+     * 操作方法的参数
+     */
+    private String methodParams;
+    /**
      * 返回值
      */
     private String returnValue;
@@ -38,5 +42,4 @@ public class OperateLog {
      * 方法执行时间
      */
     private Long costTime;
-
 }

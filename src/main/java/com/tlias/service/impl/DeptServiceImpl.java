@@ -17,10 +17,13 @@ public class DeptServiceImpl implements DeptService {
 
     @Resource
     private DeptMapper deptMapper;
+
     @Resource
     private EmpMapper empMapper;
+
     @Resource
     private DeptLogService deptLogService;
+
     @Override
     public List<Dept> list() {
         return deptMapper.list();
@@ -40,17 +43,17 @@ public class DeptServiceImpl implements DeptService {
             // int a = 1 / 0;
 
             // 验证事务是否只在RuntimeException进行回滚
-            if (true) {
-                throw new Exception("异常啦······");
-            }
+            // if (true) {
+            //     throw new Exception("异常啦······");
+            // }
             // 删除部门下的员工
             empMapper.deleteByDeptId(id);
         } finally {
             DeptLog deptLog = new DeptLog();
             deptLog.setCreateTime(LocalDateTime.now());
-            deptLog.setDescription("执行了解散部门的操作,此次解散的是"+id+"号部门");
+            deptLog.setDescription("执行了解散部门的操作,此次解散的是" + id + "号部门");
 
-            deptLogService.insert(deptLog);
+            // deptLogService.insert(deptLog);
         }
     }
 

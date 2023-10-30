@@ -1,5 +1,6 @@
 package com.tlias.controller;
 
+import com.tlias.anno.Log;
 import com.tlias.entity.Dept;
 import com.tlias.pojo.Result;
 import com.tlias.service.DeptService;
@@ -32,6 +33,7 @@ public class DeptController {
      * @param id 部门id
      * @return 无
      */
+    @Log
     @DeleteMapping("/{id}")
     public Result deleteDept(@PathVariable Integer id) throws Exception {
         log.info("根据ID删除部门：{}", id);
@@ -43,6 +45,7 @@ public class DeptController {
      * 新增部门
      * @return 无
      */
+    @Log
     @PostMapping
     public Result insertDept(@RequestBody Dept dept) {
         log.info("新增部门：{}", dept);

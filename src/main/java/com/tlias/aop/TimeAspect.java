@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class TimeAspect {
+
     /**
      * 统计连接点执行耗时
      * @param joinPoint 连接点

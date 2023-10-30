@@ -10,8 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class DeptLogServiceImpl implements DeptLogService {
+
     @Resource
     private DeptLogMapper deptLogMapper;
+
     /**
      * 记录部门日志
      * @param deptLog 部门日志
