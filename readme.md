@@ -259,4 +259,14 @@
 - bean的获取
 - 第三方bean
   - 使用配置定定义第三方@bean
-  
+
+---------------------- 20231031 学习 ------------------------
+
+- springBoot起步依赖
+- springBoot自动装配
+  - @ComponentScan() // 扫描自定义的bean
+  - @Import() // 导入类
+    - 导入普通类
+    - 导入配置类
+    - 导入ImportSelector接口的实现类
+  - @EnableXXXX 自定义注解，注解里面封装@Import注解

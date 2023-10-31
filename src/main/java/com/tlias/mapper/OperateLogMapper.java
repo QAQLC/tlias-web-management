@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface OperateLogMapper {
+public interface  OperateLogMapper {
     @Insert(
         "insert into operate_log(operate_user, operate_time, class_name, method_name, return_value, cost_time)" +
         "values (#{operateUser}, #{operateTime}, #{className}, #{methodName}, #{returnValue}, #{costTime})"
